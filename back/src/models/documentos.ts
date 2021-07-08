@@ -1,4 +1,5 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, Document } from 'mongoose';
+import { pasivosDB, pruebasDB } from '../database';
 
 export interface Documento extends Document {
   _id: number;
@@ -29,7 +30,7 @@ export interface Documento extends Document {
   hash_bson_ebk_data_captura: string;
 }
 
-const DocumentoSchema = new Schema({
+const DocumentosSchema: Schema = new Schema({
   _id: Number,
   id_doc_pdf: String,
   codigo_tramite: String,
@@ -58,4 +59,11 @@ const DocumentoSchema = new Schema({
   hash_bson_ebk_data_captura: String,
 });
 
-export default model<Documento>('Documento', DocumentoSchema);
+export const documentosPasivos = pasivosDB.model(
+  'Documentos',
+  DocumentosSchema,
+);
+export const documentosPruebas = pruebasDB.model(
+  'Documentos',
+  DocumentosSchema,
+);

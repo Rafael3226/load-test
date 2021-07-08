@@ -1,7 +1,10 @@
 import { Router } from 'express';
-import { documentosController } from '../controllers/documentos';
+import {
+  documentosPasivosController,
+  documentosPruebasController,
+} from '../controllers/documento';
 
-class DocumentosRoutes {
+class DocumentosPruebasRoutes {
   public router: Router = Router();
 
   constructor() {
@@ -9,10 +12,22 @@ class DocumentosRoutes {
   }
 
   config(): void {
-    this.router.get('/consultar', documentosController.consultar);
-    this.router.post('/guardar', documentosController.guardar);
+    this.router.get('/consultar', documentosPruebasController.consultar);
+    this.router.post('/guardar', documentosPruebasController.guardar);
+  }
+}
+class DocumentosPasivosRoutes {
+  public router: Router = Router();
+
+  constructor() {
+    this.config();
+  }
+
+  config(): void {
+    this.router.get('/consultar', documentosPasivosController.consultar);
+    // this.router.post('/guardar', documentosPasivosController.guardar);
   }
 }
 
-const documentosRoutes = new DocumentosRoutes();
-export default documentosRoutes.router;
+export const documentosPruebasRoutes = new DocumentosPruebasRoutes().router;
+export const documentosPasivosRoutes = new DocumentosPasivosRoutes().router;
