@@ -1,7 +1,10 @@
 import express from 'express';
 
 // Importing Routes
-import { documentosPruebasRoutes } from './routes/documentos';
+import {
+  documentosPasivosRoutes,
+  documentosPruebasRoutes,
+} from './routes/documentos';
 
 // Initialization
 const app = express();
@@ -16,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/pruebas', documentosPruebasRoutes);
-app.use('/pasivos', documentosPruebasRoutes);
+app.use('/pasivos', documentosPasivosRoutes);
 
 // Static Files
 

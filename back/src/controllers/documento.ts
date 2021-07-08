@@ -8,7 +8,7 @@ import {
 class DocumentosPruebasController {
   public async consultar(req: Request, res: Response) {
     const { _id } = req.body;
-    const newDocumento: Documento[] = await documentosPruebas.find({ _id });
+    const newDocumento = await documentosPruebas.find({ _id });
     res.send({
       ...newDocumento,
     });
@@ -16,7 +16,7 @@ class DocumentosPruebasController {
 
   public async guardar(req: Request, res: Response) {
     const body = req.body;
-    const newDocumento: Documento = new documentosPruebas({ ...body });
+    const newDocumento = new documentosPruebas({ ...body });
     await newDocumento.save();
     res.send('OK');
   }
@@ -25,7 +25,7 @@ class DocumentosPruebasController {
 class DocumentosPasivosController {
   public async consultar(req: Request, res: Response) {
     const { _id } = req.body;
-    const newDocumento: Documento[] = await documentosPasivos.find({ _id });
+    const newDocumento = await documentosPasivos.find({ _id });
     res.send({
       ...newDocumento,
     });
