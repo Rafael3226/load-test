@@ -2,6 +2,7 @@ import { Router } from 'express';
 import {
   documentosPasivosController,
   documentosPruebasController,
+  loadTestController,
 } from '../controllers/documento';
 
 class DocumentosPruebasRoutes {
@@ -28,6 +29,19 @@ class DocumentosPasivosRoutes {
     // this.router.post('/guardar', documentosPasivosController.guardar);
   }
 }
+class LoadTestRoutes {
+  public router: Router = Router();
+
+  constructor() {
+    this.config();
+  }
+
+  config(): void {
+    this.router.get('/exec', loadTestController.test);
+    // this.router.post('/guardar', documentosPasivosController.guardar);
+  }
+}
 
 export const documentosPruebasRoutes = new DocumentosPruebasRoutes().router;
 export const documentosPasivosRoutes = new DocumentosPasivosRoutes().router;
+export const loadTestRoutes = new LoadTestRoutes().router;

@@ -4,6 +4,7 @@ import express from 'express';
 import {
   documentosPasivosRoutes,
   documentosPruebasRoutes,
+  loadTestRoutes,
 } from './routes/documentos';
 
 // Initialization
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use('/pruebas', documentosPruebasRoutes);
 app.use('/pasivos', documentosPasivosRoutes);
+app.use('/test', loadTestRoutes);
 
 // Static Files
 

@@ -62,6 +62,7 @@ export const documentosPasivos = connPasivos.model(
   'Documentos',
   DocumentosSchema,
 );
+
 export const documentosPruebas = connPruebas.model(
   'Documentos',
   DocumentosSchema,
