@@ -1,5 +1,5 @@
 import { Schema, Document } from 'mongoose';
-import { connPasivos, connPruebas } from '../database';
+import { connPasivos } from '../database';
 export interface Documento extends Document {
   _id: number;
   id_doc_pdf: string;
@@ -59,11 +59,6 @@ const DocumentosSchema: Schema = new Schema({
 });
 
 export const documentosPasivos = connPasivos.model(
-  'Documentos',
-  DocumentosSchema,
-);
-
-export const documentosPruebas = connPruebas.model(
   'Documentos',
   DocumentosSchema,
 );
