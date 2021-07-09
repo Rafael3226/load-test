@@ -1,6 +1,6 @@
 import { Schema, Document } from 'mongoose';
 import { connPruebas } from '../database';
-export interface Documento extends Document {
+export interface DocumentoPruebas extends Document {
   id_doc_pdf: string;
   codigo_tramite: string;
   nombre_tramite: string;

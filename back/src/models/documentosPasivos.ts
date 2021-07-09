@@ -1,6 +1,6 @@
 import { Schema, Document } from 'mongoose';
 import { connPasivos } from '../database';
-export interface Documento extends Document {
+export interface DocumentoPasivos extends Document {
   _id: number;
   id_doc_pdf: string;
   codigo_tramite: string;
