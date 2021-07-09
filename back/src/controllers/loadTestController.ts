@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import path from 'path';
 import workerpool from 'workerpool';
+import { toMinutesAndSeconds } from '../lib/convert';
 
 class LoadTestController {
   public static async test(req: Request, res: Response) {
@@ -24,10 +25,9 @@ class LoadTestController {
             // terminate all workers when done
             if (pendientes === 0) {
               tiempoFin = new Date();
+              const ms = tiempoFin.getTime() - tiempoIni.getTime();
               pool.terminate();
-              res.send({
-                message: `${tiempoFin.getTime() - tiempoIni.getTime()} ms`,
-              });
+              res.send({ ms, minutes: toMinutesAndSeconds(ms) });
             }
           });
       }
