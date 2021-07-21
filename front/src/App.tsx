@@ -35,7 +35,7 @@ class App extends Component<Props, State> {
     axios
       .get('http://localhost:5000/test/exec', { params })
       .then((response) => {
-        alert(JSON.stringify(response.data.message));
+        alert(JSON.stringify(response.data));
       })
       .catch((error) => {
         this.setState({

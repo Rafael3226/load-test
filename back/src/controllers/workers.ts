@@ -11,10 +11,12 @@ async function add(id: number) {
     try {
       const pruebasDoc = removeId(pasivosDoc);
       await documentosPruebas.insertMany([pruebasDoc]);
+      return id;
     } catch (e) {
       console.log(`ERROR EN ADD: ${e.message}`);
     }
   }
+  return -1;
 }
 
 // create a worker and register public functions
